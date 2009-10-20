@@ -1,0 +1,9 @@
+  <?php $url=$this->getSkinUrl('skin/frontend/default/f002/images/media')?>
+  <?php $categor=$this->getCurrentCategory()->getName()?>
+  <?php $filename="skin/frontend/default/f002/images/media/col_left_callout-2.jpg";
+  if (file_exists($filename)) {
+  echo "<div class='yourrightcalloutthemeclass'><a href='http://www.casadedavi.com.br/webradio/'><img src='skin/frontend/default/f002/images/media/col_left_callout-2.jpg' border='0'></a></div>";
+  } else {
+  echo "";
+  }
+  ?>
