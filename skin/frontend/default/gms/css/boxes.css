@@ -573,7 +573,14 @@ h1#logo {
 /****************[ Mage_CSS_D Shop Elements]*****************/
 /************************************************************/
 
-.product-shop { float:right; }
+.product-shop {
+    float:right;
+    background-image: url(../images/icons/play.jpg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 0px;
+    margin-top: 1px;
+}
 .out-of-stock { height:18px; padding-top:3px;color:#D83820; font-weight:bold; }
 .product-shop .short-description { width:100%; overflow:hidden; margin-bottom:10px; }
 
@@ -615,7 +622,7 @@ h1#logo {
 /************************** Prices */
 .price { white-space:nowrap !important; }
 
-.price-box { padding:5px 0; }
+.price-box { padding:0; }
 .price-box .price { font-weight:bold; color:#777; }
 
 /* Regular price */
@@ -689,8 +696,8 @@ a.minimal-price-link .price { font-weight:normal; color:#1e7ec8; }
 
 
 /********************** Catalog Listing */
-.catalog-listing { line-height:1.35em; }
-.catalog-listing h5 { margin-bottom:.4em; font-size:1.05em; }
+.catalog-listing { line-height: inherit; }
+.catalog-listing h5 { margin-bottom: 0px; }
 .catalog-listing h5 a, .catalog-listing h5 a:hover { color:#0e4d00; text-decoration: none; }
 .catalog-listing .add-to { margin:.7em 0; color:#555; line-height:1.3em; font-size:.95em; font-weight:bold; }
 .catalog-listing .add-to a, .catalog-listing .add-to a:hover { text-decoration:underline; }
@@ -830,15 +837,17 @@ table.recently-list td {width:20%; }
 /********************** Catalog Listing */
 
 /* List Type */
-.listing-type-list .listing-item { border-top:1px solid #D9DDE3; padding:12px 10px; }
+.listing-type-list .listing-item { border-top:1px solid #D9DDE3; padding:1px 10px; }
 .listing-type-list .product-image { float:left; width:135px; }
-.listing-type-list .product-shop { width:355px; }
-.listing-type-list .product-shop .description { margin:.5em 0 1.2em 0; }
-.listing-type-list .product-shop .price-box { float:left;text-align:left; white-space:nowrap; margin:3px 13px 5px 0; padding:0; }
+.listing-type-list .product-shop { width:100%; }
+.listing-type-list .product-shop h5 { position: relative; float: left; width: 245px; font-size: 18px; margin: 7px 10px 7px 40px; padding: 0px; font-weight:normal; color:#777; }
+.listing-type-list .product-shop .description { margin: 0; }
+.listing-type-list .product-shop .price-box { float: left; text-align:left; margin:9px 3px 0px 0px; padding:0; }
 .listing-type-list .product-shop .form-button {margin:0.5em 0 0; }
 .listing-type-list .product-shop .product-reviews { margin:15px 0; font-size:.95em; }
 .listing-type-list .product-shop .product-reviews a, .listing-type-list .product-shop .product-reviews a:hover { color:#6e6969; }
 .listing-type-list .listing-item .rating-box { margin-bottom:6px; }
+.btn_prod_list {position: relative; float: right; width: 100px; margin: 3px -4px 0px 0px;}
 
 /* Grid Type *\/
 .listing-type-grid td { width:33%; text-align:left; }
