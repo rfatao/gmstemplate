@@ -50,6 +50,10 @@
         <div class="product-shop">
         	<!-- Nome do produto -->
             <h5><?php echo $this->htmlEscape($_product->getName())?></h5>
+			<span class="ministerio_nome">
+				<?php echo $_product->getAttributeText('ministerio') ?> 
+				<?php echo $_product->getministerio(); ?>
+			</span>
 			<!-- Preço do Produto -->
             <?php echo $this->getPriceHtml($_product, true) ?>
 			
