@@ -1,0 +1,25 @@
+<?php $_categories=$this->getCurrentChildCategories(); ?>
+<div class="listing-type-grid catalog-listing">
+	<!--<div class="page-head"><h3><?php $this->getName() ?></h3></div>-->
+	<ol class="grid-row odd">
+	<?php $_helper    = $this->helper('catalog/output'); ?>
+    <?php foreach ($_categories as $_category): ?>
+ 		<li class="item">
+ 			<p class="product-image">
+                <a title="<?php echo $this->htmlEscape($_category->getName()) ?>" href="<?php echo $_category->getURL() ?>">
+                    <!--<img height="100" width="100" title="<?php echo $this->htmlEscape($_category->getName()) ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" src="<?php echo $_category->getImageUrl() ?>" />-->
+                	<?php
+		            $cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+		            $layer = Mage::getSingleton('catalog/layer');
+		            $layer->setCurrentCategory($cur_category);
+					$_imageUrl=$this->getCurrentCategory()->getImageUrl();
+						
+				     ?>
+					 <img height="100" width="100" title="<?php echo $this->htmlEscape($_category->getName()) ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" src="<?php echo $_imageUrl ?>" />
+				</a>
+            </p>
+			<h5><a title="<?php echo $this->htmlEscape($_category->getName()) ?>" href="<?php echo $_category->getURL() ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a></h5>
+		</li>
+    <?php endforeach; ?>
+	</ol>
+</div>

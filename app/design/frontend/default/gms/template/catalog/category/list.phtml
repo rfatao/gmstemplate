@@ -1,0 +1,21 @@
+<div class="listing-type-grid catalog-listing">
+	<ol class="grid-row odd">
+		<?php foreach ($this->getStoreCategories() as $_category): ?>
+			<?php $open = $this->isCategoryActive($_category); ?>
+			<?php
+			$cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+			$layer = Mage::getSingleton('catalog/layer');
+			$layer->setCurrentCategory($cur_category);
+			$immagine = $this->getCurrentCategory()->getImageUrl()
+			?>     
+			<li class="item">
+				<p class="product-image">
+	                <a title="<?php echo $this->htmlEscape($this->getCurrentCategory()->getName()) ?>" href="<?php echo $this->getCategoryUrl($_category)?>">
+						 <img height="100" width="100" title="<?php echo $this->htmlEscape($this->getCurrentCategory()->getName()) ?>" alt="<?php echo $this->htmlEscape($this->getCurrentCategory()->getName()) ?>" src="<?php echo $immagine ?>" />
+					</a>
+	            </p>
+				<h5><a title="<?php echo $this->htmlEscape($this->getCurrentCategory()->getName()) ?>" href="<?php echo $this->getCategoryUrl($_category)?>"><?php echo $this->htmlEscape($this->getCurrentCategory()->getName()) ?></a></h5>
+			</li>
+		<?php endforeach; ?>
+	</ol>
+</div>
