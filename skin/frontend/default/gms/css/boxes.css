@@ -840,14 +840,14 @@ table.recently-list td {width:20%; }
 .listing-type-list .listing-item { border-bottom:1px solid #D9DDE3; padding:1px 10px; }
 .listing-type-list .product-image { float:left; width:135px; }
 .listing-type-list .product-shop { width:100%; }
-.listing-type-list .product-shop h5 { position: relative; float: left; clear: left; width: 255px; font-size: 16px; margin: 7px 10px 0px 40px; padding: 0px; font-weight:normal; color:#777; }
+.listing-type-list .product-shop h5 { position: relative; float: left; clear: left; width: 255px; font-size: 16px; margin: 7px 10px 0px 40px; *margin-left: 40px; padding: 0px; font-weight:normal; color:#777; }
 .listing-type-list .product-shop .description { margin: 0; }
-.listing-type-list .product-shop .price-box { float: left; text-align:left; margin:-12px 0px 0px 0px; padding:0; }
+.listing-type-list .product-shop .price-box { float: left; text-align:left; margin:-12px 0px 0px 0px; *margin-top: 12px; padding:0; }
 .listing-type-list .product-shop .form-button {margin:0.5em 0 0; }
 .listing-type-list .product-shop .product-reviews { margin:15px 0; font-size:.95em; }
 .listing-type-list .product-shop .product-reviews a, .listing-type-list .product-shop .product-reviews a:hover { color:#6e6969; }
 .listing-type-list .listing-item .rating-box { margin-bottom:6px; }
-.btn_prod_list {position: relative; float: right; width: 100px; margin: -17px -4px 0px 0px;}
+.btn_prod_list {position: relative; float: right; width: 100px; margin: -17px -4px 0px 0px; *margin-top: 7px;}
 .ministerio_nome {position: relative; float: left; clear: left; width: 255px; margin: -2px 10px 7px 40px; color:#777; font-size: 11px; }
 .category-description { margin: 15px 0px; color: #6e6969; }
 
