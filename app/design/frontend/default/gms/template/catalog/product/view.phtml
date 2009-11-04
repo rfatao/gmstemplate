@@ -54,12 +54,16 @@
             <h3 class="product-name">
                 <?php echo $_helper->productAttribute($_product, $this->htmlEscape($_product->getName()), 'name') ?>
             </h3>
-
+			<span class="ministerio_nome">
+				<?php echo $_product->getAttributeText('ministerio') ?> 
+				<?php echo $_product->getministerio(); ?>
+			</span>
+			
             <?php if ($this->canEmailToFriend()): ?>
-                <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a><br />
+                <!--<a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a><br />-->
             <?php endif; ?>
 
-            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+            <?php // echo $this->getReviewsSummaryHtml($_product, false, true)?>
 
             <fieldset class="no-display">
               <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
@@ -67,35 +71,48 @@
             </fieldset>
 
             <?php echo $this->getChildHtml('alert_urls') ?>
-            <?php echo $this->getChildHtml('product_type_data') ?>
-            <?php echo $this->getTierPriceHtml() ?>
+            <?php // echo $this->getChildHtml('product_type_data') ?>
+            <?php // echo $this->getTierPriceHtml() ?>
+			<div class="add-to-holder">
+				<!-- Botão ouvir Exemplo -->
+				<?php
+				$_myprodsamples = Mage::getModel('downloadable/sample'); 
+				$_mySampleCollection = $_myprodsamples->getCollection()->addProductToFilter($_product->getId());
+				if (sizeof($_mySampleCollection)>0):
+					foreach ($_mySampleCollection as $_sample):
+						$_samplelink = $this->getUrl('downloadable/download/sample/sample_id/'.$_sample->getId());
+						?><a href="<?php echo $_samplelink ?>" class="samples_new" title="<?php echo $this->__('Sample'); ?>" <?php echo Mage::getStoreConfigFlag(Mage_Downloadable_Model_Link::XML_PATH_TARGET_NEW_WINDOW)?'onclick="this.target=\'_blank\'"':''; ?>><img src="<?php echo $this->getSkinUrl() ?>/images/icons/speaker.jpg" alt="Exemplo" title="Exemplo" border="0" /></a><?php
+					endforeach;
+				endif;
+				?> 			
 
-            <?php if (!$this->hasOptions()):?>
-                <div class="add-to-holder">
-                    <?php if($_product->isSaleable()): ?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
-                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                            <span class="add-or"><?php echo $this->__('OR') ?></span>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                    <?php echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php else:?>
-                <?php echo $this->getChildHtml('addto') ?>
-            <?php endif; ?>
+				<!-- Botão Add to WishList -->
+	            <?php if ($this->helper('wishlist')->isAllow()) : ?>
+	            	<a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-cart wishlist_new" title="<?php echo $this->__('Add to Wishlist') ?>"><img src="<?php echo $this->getSkinUrl() ?>/images/icons/hand.jpg" alt="<?php echo $this->__('Add to Wishlist') ?>" title="<?php echo $this->__('Add to Wishlist') ?>" border="0" /></a>
+	            <?php endif; ?>
+				<!-- Botão Adicionar ao Carrinho -->
+				
+					
+	            <?php if($_product->isSaleable()): ?>
+	                <a href="<?php echo $this->getAddToCartUrl($_product) ?>" class="addtocart_new" title="<?php echo $this->__('Add to Cart') ?>"><img src="<?php echo $this->getSkinUrl() ?>/images/icons/plus.jpg" alt="<?php echo $this->__('Add to Cart') ?>" title="<?php echo $this->__('Add to Cart') ?>" border="0" /></a>
+	            <?php else: ?>
+	            	<div class="out-of-stock"><?php echo $this->__('Out of stock') ?></div>
+	            <?php endif; ?>				
+			</div>
 
             <div class="divider"></div>
 
-            <?php if ($_product->getShortDescription()):?>
+            <!--<?php if ($_product->getShortDescription()):?>
                 <h4><?php echo $this->__('Quick Overview') ?></h4>
                 <div class="short-description"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
-            <?php endif;?>
+            <?php endif;?>-->
 
             <?php echo $this->getChildHtml('other');?>
 
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                 <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
+			<?php // echo $this->getChildHtml('addtocart') ?>
 
         </div>
         <div class="clear"></div>
@@ -114,14 +131,14 @@
     </div>
 
     <div class="product-collateral">
-        <?php if ($_description = $this->getChildHtml('description')):?>
+        <!--<?php if ($_description = $this->getChildHtml('description')):?>
             <div class="collateral-box">
                 <div class="head">
                     <h4><?php echo $this->__('Product Description') ?></h4>
                 </div>
                 <?php echo $_description ?>
             </div>
-        <?php endif;?>
+        <?php endif;?>-->
         <?php if ($_additional = $this->getChildHtml('additional')):?>
             <div class="collateral-box">
                 <div class="head">
