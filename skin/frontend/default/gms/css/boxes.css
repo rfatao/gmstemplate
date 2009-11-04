@@ -581,6 +581,12 @@ h1#logo {
     padding: 0px;
     margin-top: 1px;
 }
+
+.product-info-box .product-shop
+{
+	background: none;
+}
+
 .out-of-stock { height:18px; padding-top:3px;color:#D83820; font-weight:bold; }
 .product-shop .short-description { width:100%; overflow:hidden; margin-bottom:10px; }
 
@@ -850,6 +856,7 @@ table.recently-list td {width:20%; }
 .btn_prod_list {position: relative; float: right; width: 100px; margin: -17px -4px 0px 0px; *margin-top: 7px;}
 .ministerio_nome {position: relative; float: left; clear: left; width: 255px; margin: -2px 10px 7px 40px; color:#777; font-size: 11px; }
 .category-description { margin: 15px 0px; color: #6e6969; }
+.product-info-box .ministerio_nome { margin: -5px 0px -5px 0px; float: none; clear: none; position: relative; }
 
 /* Grid Type *\/
 .listing-type-grid td { width:33%; text-align:left; }
@@ -878,8 +885,8 @@ table.recently-list td {width:20%; }
 
 /********************** Product Detail */
 /* Product Images */
-.product-img-box { float:left; width:267px; }
-.product-img-box .product-image-zoom { position:relative; overflow:hidden; width:265px; height:265px; z-index:9; }
+.product-img-box { float:left; width:202px; }
+.product-img-box .product-image-zoom { position:relative; overflow:hidden; width:200px; height:200px; z-index:9; }
 .product-img-box .product-image-zoom img { position:absolute; left:0; top:0; cursor:move; }
 .image-zoom { position:relative; z-index:9; height:18px; margin:0 auto 13px auto; background:url(../images/slider_bg.gif) no-repeat 50% 50%; padding:0 28px 0 28px; cursor:pointer; }
 .image-zoom #track { position:relative; height:18px; }
@@ -916,7 +923,7 @@ table.recently-list td {width:20%; }
 .product-info-box .ratings { margin-bottom:1em; }
 .product-essential, .product-collateral { padding:25px; }
 .product-essential { padding:25px; background:url(../images/product_essential_bg.gif) no-repeat 100% 0 #fff; }
-.product-essential .product-shop { width:385px; }
+.product-essential .product-shop { width:435px; }
 .product-essential .product-shop .ratings { margin-bottom:10px; }
 
 .product-pricing { margin:10px 0; padding:10px; background-color:#f4f7f7; border:1px solid #dadddd; }
