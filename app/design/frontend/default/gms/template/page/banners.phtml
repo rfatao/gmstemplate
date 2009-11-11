@@ -1,0 +1,44 @@
+<?php
+	$bannerCollection = Mage::getModel('bannerslider/bannerslider')->getCollection();
+	$_banners_items = $bannerCollection->getItems();
+	shuffle($_banners_items);
+	$configData = Mage::getStoreConfig('bannerslider');
+	$i = 0;
+?>
+
+<div id="slider">
+	<div class="slidercontrolwr">
+		<div class="slidercontrol">
+			<a href="#" class="aprev" title="Previous" onclick="my_glider.previous();return false;">Previous</a>
+			<a href="#" class="astop" title="Stop" onclick="my_glider.stop();return false">Stop</a>
+			<a href="#" class="aplay" title="Play" onclick="my_glider.start();return false">Start</a>
+			<a href="#" class="anext" title="Next" onclick="my_glider.next();return false">next</a>
+		</div>
+	</div>
+	<div class="scroller">
+		<div class="content">
+			<?php
+			foreach ($_banners_items as $banner):
+				$i++;
+				?>
+				<div class="section" id="section<?php echo $i;?>">
+					<a href="<?php echo $banner['weblink'];?>" title="<?php echo $banner['title']?>">
+						<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $banner['filename']?>" alt="<?php echo $banner['title']?>" title="<?php echo $banner['title']?>" border="0" />
+					</a>
+				</div>				
+
+				<?php
+				if($i==6):
+					break;
+				endif;
+			endforeach;
+			?>
+		</div>
+	</div>
+</div>
+		
+<script src="<?php echo $this->getSkinUrl() ?>/js/glider.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+	var my_glider = new Glider('slider', {duration:0.5, autoGlide: false, frequency: 4, initialSection: 'section1'});
+</script>
