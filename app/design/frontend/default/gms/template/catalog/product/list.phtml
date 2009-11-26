@@ -67,7 +67,7 @@
 				if (sizeof($_mySampleCollection)>0):
 					foreach ($_mySampleCollection as $_sample):
 						$_samplelink = $this->getUrl('downloadable/download/sample/sample_id/'.$_sample->getId());
-						?><a href="<?php echo $_samplelink ?>" class="samples_new" title="<?php echo $this->__('Sample'); ?>" <?php echo Mage::getStoreConfigFlag(Mage_Downloadable_Model_Link::XML_PATH_TARGET_NEW_WINDOW)?'onclick="this.target=\'_blank\'"':''; ?>><img src="<?php echo $this->getSkinUrl() ?>/images/icons/speaker.jpg" alt="Exemplo" title="Exemplo" border="0" /></a><?php
+						?><a href="<?php echo $_samplelink ?>" class="samples_new" target="_blank" title="<?php echo $this->__('Sample'); ?>" <?php echo Mage::getStoreConfigFlag(Mage_Downloadable_Model_Link::XML_PATH_TARGET_NEW_WINDOW)?'onclick="this.target=\'_blank\'"':''; ?>><img src="<?php echo $this->getSkinUrl() ?>/images/icons/speaker.jpg" alt="Exemplo" title="Exemplo" border="0" /></a><?php
 					endforeach;
 				endif;
 				?> 
