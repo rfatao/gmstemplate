@@ -55,7 +55,29 @@
 				<?php echo $_product->getministerio(); ?>
 			</span>
 			<!-- Preço do Produto -->
-            <?php echo $this->getPriceHtml($_product, true) ?>
+			<?php $preco = $_product->getPrice(); ?>
+			<?php if($preco == 0)
+			{
+				?>
+				<div class="price-box">
+					<span class="regular-price">
+						<span class="price" style="font-size: 16px;">GR&Aacute;TIS</span>
+					</span>
+				</div>
+				<?php			
+			}
+			else
+			{
+				?>
+				<div class="price-box">
+					<span class="regular-price">
+						<span class="price"><span style="font-size: 12px;">R$</span> <?php echo str_replace(".", ",", number_format($preco, 2)); ?></span>
+					</span>
+				</div>
+				<?php
+			}
+			?>
+            <?php //echo $this->getPriceHtml($_product, true) ?>
 			
 			<!-- Botões -->
 			<div class="btn_prod_list">
